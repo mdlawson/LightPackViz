@@ -20,7 +20,7 @@ namespace LightPackViz
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            using (var show = new LightShow())
+            using (var show = new LightShow(new LightPack()))
             using (var tray = new VizTray()) {
                 var music = new MusicAnalyser(1024);
                 var analysis = new SpectrumAnalyser(music).LogScale().Trim(256).FluxThreshold(1.2);

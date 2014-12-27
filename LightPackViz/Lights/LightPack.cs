@@ -7,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LightPackViz {
-    public class LightPack : IDisposable {
+    public class LightPack : IDisposable, ILights {
         private string apiKey;
 
         private TcpClient client;
         
-        private Color[] Leds;
+        private Color[] leds;
         private float gamma;
         private int brightness;
         private int smoothing;
@@ -75,7 +75,7 @@ namespace LightPackViz {
                 Version = Version.Substring(0, Version.IndexOf(" "));
                 sendData("apikey:" + apiKey);
                 if (readData() == "ok") {
-                    Leds = new Color[LedCount];
+                    leds = new Color[LedCount];
                     Lock();
                     Brightness = 100;
                 } else {
@@ -116,12 +116,12 @@ namespace LightPackViz {
 
         public Color this[int i] {
             get {
-                return Leds[i];
+                return leds[i];
             }
             set {
                 var s = setProp("color", LedMap[i] + "-" + value.R + "," + value.G + "," + value.B + ";");
                 if (s == "ok") {
-                    Leds[i] = value;
+                    leds[i] = value;
                 }
             }
         }

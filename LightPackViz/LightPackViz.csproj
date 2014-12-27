@@ -66,8 +66,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Lights\ILights.cs" />
     <Compile Include="Lights\LightShow.cs" />
     <Compile Include="Analysis\SpectrumAnalyser.cs" />
+    <Compile Include="Lights\LightStub.cs" />
     <Compile Include="SpectrumDebugView.cs">
       <SubType>Form</SubType>
     </Compile>

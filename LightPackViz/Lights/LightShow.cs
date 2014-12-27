@@ -5,8 +5,8 @@ namespace LightPackViz {
 
         public LightPack Lights { private set; get; }
 
-        public LightShow() {
-            Lights = new LightPack();
+        public LightShow(LightPack lights) {
+            Lights = lights;
             Lights.Connect();
             Lights.Smoothing = 30;
         }
