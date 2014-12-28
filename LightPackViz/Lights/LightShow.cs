@@ -3,9 +3,9 @@
 namespace LightPackViz {
     public class LightShow : IDisposable {
 
-        public LightPack Lights { private set; get; }
+        public ILights Lights { private set; get; }
 
-        public LightShow(LightPack lights) {
+        public LightShow(ILights lights) {
             Lights = lights;
             Lights.Connect();
             Lights.Smoothing = 30;
@@ -22,8 +22,15 @@ namespace LightPackViz {
 
         public void OnFluxAvailable(object sender, double flux) {
             //if (flux < 0) Lights.Brightness += (int) (flux*60000);
-            if (flux < 0) Lights.Brightness = 0;
-            else Lights.Brightness = (int) (flux*35000);
+//            int brightness = 0;
+//            if (flux > 0) { 
+//                brightness = (int) (flux*35000);
+//                if (brightness > 100) brightness = 100;
+//            }
+            int brightness = Lights.Brightness + (int) (flux/200);
+            if (brightness > 100) brightness = 100;
+            if (brightness < 0) brightness = 0;
+            Lights.Brightness = brightness;
         }
     }
 }

@@ -70,37 +70,46 @@
     <Compile Include="Lights\LightShow.cs" />
     <Compile Include="Analysis\SpectrumAnalyser.cs" />
     <Compile Include="Lights\LightStub.cs" />
-    <Compile Include="SpectrumDebugView.cs">
+    <Compile Include="UI\LightsDebugView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SpectrumDebugView.Designer.cs">
+    <Compile Include="UI\LightsDebugView.Designer.cs">
+      <DependentUpon>LightsDebugView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SpectrumDebugView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SpectrumDebugView.Designer.cs">
       <DependentUpon>SpectrumDebugView.cs</DependentUpon>
     </Compile>
-    <Compile Include="WaveDebugView.cs">
+    <Compile Include="UI\WaveDebugView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WaveDebugView.Designer.cs">
+    <Compile Include="UI\WaveDebugView.Designer.cs">
       <DependentUpon>WaveDebugView.cs</DependentUpon>
     </Compile>
     <Compile Include="Analysis\MusicAnalyser.cs" />
-    <Compile Include="WasapiCapture.cs" />
+    <Compile Include="Analysis\WasapiCapture.cs" />
     <Compile Include="Lights\LightPack.cs" />
-    <Compile Include="LightTest.cs">
+    <Compile Include="UI\LightTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LightTest.Designer.cs">
+    <Compile Include="UI\LightTest.Designer.cs">
       <DependentUpon>LightTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VizTray.cs" />
-    <EmbeddedResource Include="SpectrumDebugView.resx">
+    <Compile Include="UI\VizTray.cs" />
+    <EmbeddedResource Include="UI\LightsDebugView.resx">
+      <DependentUpon>LightsDebugView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SpectrumDebugView.resx">
       <DependentUpon>SpectrumDebugView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WaveDebugView.resx">
+    <EmbeddedResource Include="UI\WaveDebugView.resx">
       <DependentUpon>WaveDebugView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LightTest.resx">
+    <EmbeddedResource Include="UI\LightTest.resx">
       <DependentUpon>LightTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

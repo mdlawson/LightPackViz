@@ -36,8 +36,8 @@ namespace LightPackViz {
 //            bands = new double[numBands];
             m = (int) Math.Log(fftLength, 2.0);
 
-            // waveIn = new WasapiLoopbackCapture();
-            waveIn = new WasapiCapture(WasapiCapture.GetWhatYouHearDevice());
+            waveIn = new WasapiLoopbackCapture();
+            //waveIn = new WasapiCapture(WasapiCapture.GetWhatYouHearDevice());
             waveIn.DataAvailable += onDataAvailable;
             waveIn.StartRecording();
         }

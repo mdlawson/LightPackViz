@@ -11,8 +11,8 @@ using System.Windows.Forms;
 namespace LightPackViz
 {
     public partial class LightTest : Form {
-        private LightPack lights;
-        public LightTest(LightPack lights) {
+        private ILights lights;
+        public LightTest(ILights lights) {
             this.lights = lights;
             InitializeComponent();
             lights.Status = "on";

@@ -94,21 +94,24 @@ namespace LightPackViz {
                     break;
             }
 
+            switch (scale) {
+                case Scale.LOG:
+                    for (var i = 0; i < bands.Length; i++) {
+                        bands[i] = 10 * Math.Log10(bands[i]) + 100;
+                    }
+                    break;
+            }
+
             if (FluxAvailable != null) {
                 double total = 0;
                 foreach (double band in bands) total += band;
                 var flux = total - addTotal(total);
-                var target = lastTotals.Average() * threshold;
-                if (total > target) FluxAvailable(this, flux);
+                //var target = lastTotals.Average() * threshold;
+                //if (Math.Abs(total) > target) FluxAvailable(this, flux); // TODO fix threshold?
+                FluxAvailable(this, flux);
             }
 
-            switch (scale) {
-                case Scale.LOG:
-                    for (var i = 0; i < bands.Length; i++) {
-                        bands[i] = 10*Math.Log10(bands[i]) + 90;
-                    }
-                    break;
-            }
+            
 
             if (BandsAvailable != null) BandsAvailable(this, bands);
 

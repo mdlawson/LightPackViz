@@ -93,7 +93,7 @@ namespace LightPackViz {
             foreach (var device in devices.EnumerateAudioEndPoints(DataFlow.Capture, DeviceState.Active)) {
                 Console.WriteLine(device.FriendlyName + " " + device.ID);    
             }
-            return devices.GetDevice("{0.0.1.00000000}.{1626b777-d601-49f8-9cfc-a908a6cdf80e}");
+            return devices.GetDevice("{0.0.1.00000000}.{1626b777-d601-49f8-9cfc-a908a6cdf80e}"); // TODO fix this shit
         }
 
         private void InitializeCaptureDevice() {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LightPackViz.Lights;
+using LightPackViz.UI;
 
 namespace LightPackViz
 {
@@ -20,7 +22,7 @@ namespace LightPackViz
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            using (var show = new LightShow(new LightPack()))
+            using (var show = new LightShow(new LightStub()))
             using (var tray = new VizTray()) {
                 var music = new MusicAnalyser(1024);
                 var analysis = new SpectrumAnalyser(music).LogScale().Trim(256).FluxThreshold(1.2);
@@ -30,7 +32,8 @@ namespace LightPackViz
                 analysis.BandsAvailable += debug.Update;
                 debug.Show();
 
-                new LightTest(show.Lights).Show();
+                new LightsDebugView(show).Show();
+                //new LightTest(show.Lights).Show();
                 Application.Run();
 
             }

@@ -16,8 +16,12 @@ namespace LightPackViz.Lights {
         }
 
         public LightStub() {
+            LedCount = 10;
             LedMap = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            leds = new Color[10];
+            leds = new Color[LedCount];
+            for (var i = 0; i < leds.Length; i++) {
+                leds[i] = Color.Red;
+            }
         }
 
         public int Brightness { get; set; }
